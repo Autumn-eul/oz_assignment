@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 소개 & 콘텐츠 변경하기</title>
+</head>
+
+<body>
+
+    <p>태연 - 사계</p>
+    <p class="comment">사계절이 와 그리고 또 떠나 내 겨울을 주고 또 여름도 주었던</p>
+    <p class="comment" id="love">온 세상이던 널 보낼래 정말 너를 사랑 했을까?</p>
+
+    <script>
+        // 입력 - 처리 - 출력
+        const p1 = window.document.querySelector("p")
+        const p2 = document.querySelector(".comment")
+        const p3 = document.querySelector("#love")
+
+        console.log(p1.textContent)
+        console.log(p2.textContent)
+        console.log(p3.textContent)
+
+        p1.textContent = "언제야? 봄이던가? 맞아 그땐 한참 서로가"
+        p2.textContent = "셰익스피어의 연극같은 마지막이 될 사랑마주 한듯"
+        p3.textContent = "둘 밖에 안보였나봐 다른 걸 좀 보고파"
+    </script>
+
+</body>
+
+</html>
