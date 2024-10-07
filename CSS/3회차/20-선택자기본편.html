@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>선택자 기본편</title>
+    <style>
+        * {
+            color: red;
+        }
+
+        li {
+            color: blue;
+        }
+
+        .hiphop {
+            color: purple;
+        }
+
+        #belly {
+            color: orange;
+        }
+
+        /*
+        선택자 우선순위 : 쓰여진 순서와 관걔없이 적용되는 순위
+        1. 아이디 선택자 (#)
+        2. 클래스 선택자 (.)
+        3. 태그 선택자
+        기본적으론 나중에 쓰여진게 적용되는게 맞지만 특정 선택자에 한에 우선순위가 적용
+        */
+    </style>
+</head>
+
+<body>
+    <h2>춤의 장르</h2>
+    <p>무척 다양한 장르가 존재합니다</p>
+    <ul>
+        <li class="hiphop">비보잉</li>
+        <li class="hiphop">팝핀</li>
+        <li class="hiphop">락킹</li>
+        <li id="belly">벨리</li>
+        <li id="jazz">재즈</li>
+    </ul>
+</body>
+
+</html>
