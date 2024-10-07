@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 더 알아보기</title>
+    <style>
+        /*
+        기호와 함께 사용하는 속성 선택자
+        * : 값의 포함 여부
+        ^ : 값의 시작 여부
+        $ : 값의 끝 여부
+        */
+        [width $= "0"] {
+            border: 5px dashed skyblue;
+        }
+
+        body em {
+            /* 이렇게 사용하는건 하위 요소 선택 */
+            color: blue;
+        }
+
+        p > strong {
+            /* 이렇게 사용하는건 한 단계 아래의 자식 요소 선택 */
+            color: cornflowerblue;
+        }
+
+        #sam + p {
+            /*
+            + : 인접 형제 선택자, 내 바로 뒤의 형제
+            ! : 내 뒤의 모든 형제 
+            */
+            color: orange;
+        }
+
+        /* 형제 선택자는 뒤이어 등장하는 형제들을 대상으로 한다!!! */
+    </style>
+</head>
+
+<body>
+    <img src="images/조정석.jpeg" width="120" alt="조정석">
+    <img src="images/조정석.jpeg" width="120">
+    <img src="images/조정석.jpeg" width="120" id="sam">
+    <p>샴페인 소리가 울려 퍼져 그대가 미소 짓네요</p>
+    <p>코가 삐뚤어지게 취하는 게 때로는 <strong>짜릿하니까</strong></p>
+    <p>그대여 오늘은 아무 생각 말아요 <em>지치고 짜증이 나도</em></p>
+    <p>그대여 오늘은 그대의 날이에요 기가 막히게 놀아봐요 그대 웃어요</p>
+</body>
+
+</html>
