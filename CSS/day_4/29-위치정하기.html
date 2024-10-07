@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>위치 정하기</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            color: white;
+            background-color: orange;
+        }
+
+        .rel {
+            background-color: red;
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+
+        .abs {
+            /*
+            앱솔루트 요소는 position 속성을 가진 요소를 기준으로 위치를 이동한다.
+            단, 상위 요소 중에 position 속성을 가진 요소가 없다면 그냥 화면을 기준으로 이동한다.
+            */
+            position: absolute;
+            /* 문서의 흐름에서 제외 */
+            right: 50px;
+            top: 50px;
+        }
+
+        .scroll {
+            height: 2000px;
+        }
+
+        .fixed {
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="abs">1</div>
+    <div class="rel">2</div>
+    <div class="scroll">3</div>
+    <div class="fixed">4</div>
+</body>
+
+</html>

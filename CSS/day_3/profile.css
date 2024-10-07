@@ -45,10 +45,14 @@ img {
     line-height: 25px;
 }
 
-.point {
+.brown {
     color: brown;
 }
 
 .red {
     color: red;
+}
+
+.point {
+    font-family: "Diphylleia", serif;
 }
