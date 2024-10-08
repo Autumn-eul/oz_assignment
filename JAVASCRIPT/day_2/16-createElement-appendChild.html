@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElement & appendChild</title>
+</head>
+
+<body>
+
+    <div id="container">
+
+
+
+    </div>
+
+    <script>
+        for (let a = 1; a <= 5; a += 1) {
+            const div = document.getElementById("container")
+
+            const box = document.createElement("div")
+            box.style.color = "blue"
+            box.style.width = "200px"
+            box.style.height = "200px"
+            box.textContent = " 헷갈리지만 신기하긴한데 재미는 좀.."
+
+            div.appendChild(box)
+        }
+    </script>
+
+</body>
+
+</html>
