@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>value 속성</title>
+</head>
+
+<body>
+
+    <input id="talk">
+    <input id="push" type="button" value="push">
+
+    <form id="form">
+        <input name="name">
+        <input name="nick">
+        <input type="submit">
+    </form>
+
+    <script>
+        const form = document.getElementById("form")
+        form.addEventListener("submit", function (event) {
+            event.preventDefault() // 새로고침을 차단함
+            const p = document.createElement("p")
+            p.textContent = `${event.target.name.value}의 별명은 ${event.target.nick.value}`
+            document.body.append(p)
+        })
+
+        /*
+        const input = document.getElementById("talk")
+        const button = document.getElementById("push")
+
+        input.addEventListener("keyup", function(e) {
+            console.log(e.target.value)
+        })
+
+        button.addEventListener("click", function() {
+            const p = document.createElement("p")
+            p.textContent = input.value
+            document.body.append(p)
+        })
+        */
+    </script>
+</body>
+
+</html>
