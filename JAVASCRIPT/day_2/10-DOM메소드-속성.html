@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 메소드 및 속성</title>
+</head>
+<body>
+
+    <h1 id="song-title" class="heading" title="노을의 2020년 발매곡">
+        <span>너의 곁에만 맴돌아</span>
+    </h1>
+    <p class="lyricks">
+        해가 뜨는 새벽에 집에 가는 사람들 그제서야 잠을 이루고
+    </p>
+    <p class="lyricks">
+        함께 했던 시간에 덩그러니 남아서 돌아가지 못하고 있다
+    </p>
+    
+    <script>
+        console.log(document.querySelectorAll(".lyricks"))
+        console.log(
+            document.getElementsByClassName("lyricks")
+        )
+
+        const title = document.getElementById("song-title")
+        console.log(title)
+
+        console.log(title.textContent)
+        console.log(title.innerText)
+        console.log(title.className)
+        console.log(title.style)
+        console.log(title.title)
+
+    </script>
+
+</body>
+</html>
