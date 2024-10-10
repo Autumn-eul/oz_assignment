@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            box-align: center;
+            height: 600px;
+            width: 500px;
+            margin: 10px;
+        }
+
+        #container {
+            border-radius: 15px;
+            border: 1px solid rgb(52, 52, 52);
+            background-color: rgb(243, 243, 243);
+            padding: 25px;
+        }
+
+        p {
+            color: gray;
+            margin-bottom: 0;
+            font-size: 13px;
+        }
+
+        .agree {
+            margin: 10px 0;
+        }
+
+        .margin {
+            margin: 15px 0;
+        }
+
+        .bottom {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>회원가입</h1>
+        <form id="form" action="" method="post">
+
+            <div class="margin">
+                <label for="inputId" class="bottom">아이디</label>
+                <input type="text" class="form-control" id="inputId" placeholder="아이디" required>
+                <div class="valid-feedback">
+                    사용가능한 아이디 입니다.
+                </div>
+                <div class="invalid-feedback">
+                    6자 이상 20자 이하로 작성해 주세요.
+                </div>
+            </div>
+
+            <div>
+                <div class="margin">
+                    <label for="inputPw1" class="bottom">비밀번호</label>
+                    <input type="password" class="form-control" id="inputPw1" placeholder="비밀번호" required>
+                    <p>* 영문, 숫자, 특수문자를 포함한 8자 이상 20자 미만이어야 합니다.</p>
+                    <div class="valid-feedback">
+                        사용가능한 패스워드 입니다.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="margin">
+                <label for="inputPw2" class="bottom">비밀번호 확인</label>
+                <input type="password" class="form-control" id="inputPw2" placeholder="비밀번호 확인" required>
+                <div class="valid-feedback">
+                    비밀번호가 일치합니다.
+                </div>
+                <div class="invalid-feedback">
+                    비밀번호가 일치하지 않습니다.
+                </div>
+            </div>
+
+            <div class="margin">
+                <label for="inputName" class="bottom">이름</label>
+                <input type="text" class="form-control" id="inputName" placeholder="이름" required>
+            </div>
+
+            <div class="margin">
+                <label for="inputPhone" class="bottom">전화번호</label>
+                <input type="phone" class="form-control" id="inputPhone" placeholder="전화번호" required>
+            </div>
+
+            <fieldset>
+                <div class="margin">
+                    <label class="form-label">성별</label><br>
+                    <input type="radio" name="gender" value="남자" checked> 남자
+                    <input type="radio" name="gender" value="여자"> 여자
+                    <input type="radio" name="gender" value="선택안함"> 선택안함
+                </div>
+            </fieldset>
+
+            <div>
+                <label for="inputEmail" class="bottom">이메일</label>
+                <input type="email" class="form-control" id="inputEmail" required>
+            </div>
+
+
+            <div class="form-check agree margin">
+                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3"
+                    aria-describedby="invalidCheck3Feedback" required>
+                <label class="form-check-label" for="invalidCheck3" required>
+                    개인정보 수집 및 이용에 동의합니다.
+                </label>
+                <div id="invalidCheck3Feedback" class="invalid-feedback">
+                    ( 개인정보 수집 및 이용에 동의하셔야 회원가입이 가능합니다. )
+                </div>
+            </div>
+
+
+            <div class="margin">
+                <button class="btn btn-primary" type="submit">가입</button>
+            </div>
+
+
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+        <script>
+
+            const form = document.getElementById("form")
+            let isIdValid = false;
+            let isPwValid1 = false;
+            let isPwValid2 = false;
+
+            // Id 가 6자 이상 20자 미만이 맞는가
+
+            document.querySelector("#inputId").addEventListener("input", function () {
+                let inputId = this.value;
+                isIdValid = inputId.length >= 6 && inputId.length <= 20;
+                if (isIdValid) {
+                    this.classList.remove("is-invalid");
+                    this.classList.add("is-valid");
+                } else {
+                    this.classList.remove("is-valid");
+                    this.classList.add("is-invalid");
+                }
+            });
+
+            // 비밀번호가 영문, 숫자, 특수문자를 포함한 8이상 20이하가 맞는가
+            document.querySelector("#inputPw1").addEventListener("input", function () {
+                let inputPw1 = this.value;
+                isPwValid1 = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/.test(inputPw1);;
+                if (isPwValid1) {
+                    this.classList.remove("is-invalid");
+                    this.classList.add("is-valid");
+                } else {
+                    this.classList.remove("is-valid");
+                    this.classList.add("is-invalid");
+                }
+            })
+
+            // Pw1 == Pw2 부합하는가
+            document.querySelector("#inputPw2").addEventListener("input", function () {
+                let inputPw2 = this.value;
+                let inputPw1 = document.querySelector("#inputPw1").value;
+                isPwValid2 = inputPw1 == inputPw2;
+                if (isPwValid2) {
+                    this.classList.remove("is-invalid");
+                    this.classList.add("is-valid")
+                } else {
+                    this.classList.remove("is-valid");
+                    this.classList.add("is-invalid");
+                }
+            })
+
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault()
+
+                if (!isIdValid || !isPwValid1 || !isPwValid2) {
+                    event.preventDefault()
+                }
+
+                let userId = event.target.inputId.value
+                let userPw1 = event.target.inputPw1.value
+                let userName = event.target.inputName.value
+                let userPhone = event.target.inputPhone.value
+                let userGender = event.target.gender.value
+                let userEmail = event.target.inputEmail.value
+
+                alert(
+                `${userName}님 환영합니다.
+                아이디 : ${userId}
+                비밀번호 : ${userPw1}
+                이름 : ${userName}
+                전화번호 : ${userPhone}
+                성별 : ${userGender}
+                이메일 : ${userEmail}`)
+
+            })
+
+        </script>
+    </div>
+</body>
+
+</html>
