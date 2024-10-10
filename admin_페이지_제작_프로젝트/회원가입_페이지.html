@@ -47,8 +47,7 @@
 </head>
 
 <body>
-
-    /* 부트스트랩을 이용한 회원가입 페이지 만들기 */
+    <!--부트스트랩을 이용한 회원가입 페이지 만들기 -->
 
     <div id="container">
         <h1>회원가입</h1>
@@ -203,13 +202,16 @@
                 let userEmail = event.target.inputEmail.value
 
                 alert(
-                    `${userName}님 환영합니다.
+                `${userName}님 환영합니다.
                 아이디 : ${userId}
                 비밀번호 : ${userPw1}
                 이름 : ${userName}
                 전화번호 : ${userPhone}
                 성별 : ${userGender}
                 이메일 : ${userEmail}`)
+
+                const newUrl = "/signup"
+                window.history.pushState({ path: newUrl }, '', newUrl)
 
             })
 
