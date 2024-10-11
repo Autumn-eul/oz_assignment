@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빌트인 객체 math</title>
+</head>
+
+<body>
+
+    <button id="draw">추첨</button>
+    <p id="number"></p>
+
+    <script>
+        const button = document.getElementById("draw")
+        const p = document.getElementById("number")
+
+        // 0 ~ 1 사이의 랜덤 숫자를 반환해준다. -> 1은 포함되지 않는다
+        let rn = Math.random()
+
+        // Math.floor() : 주어진 숫자에서 소수점 이하를 제거해 반환해준다.
+        const MAX_NUM = 10
+        const MIN_NUM = 1
+
+        button.addEventListener("click", function () {
+            p.textContent = Math.floor(Math.random() * MAX_NUM) + MIN_NUM
+        })
+
+        /*
+        console.log(Math.sqrt(4)) // 제곱근
+        console.log(Math.abs(-4)) // 절댓값
+        */
+
+    </script>
+
+</body>
+
+</html>

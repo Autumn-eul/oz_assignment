@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빌트인 생성자</title>
+</head>
+
+<body>
+
+    <p id="now"></p>
+
+    <script>
+
+        const p = document.getElementById("now")
+
+        const now = new Date()
+        // const then = new Date(1992, 11, 12, 30, 45)
+
+        let year = now.getFullYear()
+        let month = now.getMonth() + 1
+        let day = now.getDate()
+        let hour = now.getHours()
+        let min = now.getMinutes()
+        let sec = now.getSeconds()
+
+        p.textContent = `${year}/${month}/${day} ${hour}:${min}:${sec}`
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 리스트</title>
+    <style>
+        .handsome {
+            width: 200px;
+            height: 300px;
+            border-radius: 40%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="images/조정석.jpeg" alt="조정석">
+    <br>
+    <button id="add">ADD STYLE</button>
+    <button id="remove">REMOVE STYLE</button>
+    <button id="toggle">TOGGLE STYLE</button>
+
+    <script>
+        const img = document.querySelector("img")
+        const addBtn = document.querySelector("#add")
+        const removeBtn = document.querySelector("#remove")
+        const toggleBtn = document.querySelector("#toggle")
+
+        console.log(img.classList)
+
+        addBtn.addEventListener("click", function () {
+            img.classList.add("handsome")
+            console.log(img.classList.contains("handsome"))
+        })
+
+        removeBtn.addEventListener("click", function () {
+            img.classList.remove("handsome")
+            console.log(img.classList.contains("handsome"))
+        })
+
+        toggleBtn.addEventListener("click", function () {
+            img.classList.toggle("handsome")
+            console.log(img.classList.contains("handsome"))
+        })
+
+    </script>
+</body>
+
+</html>

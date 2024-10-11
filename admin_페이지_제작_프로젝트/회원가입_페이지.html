@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="utf-8">
@@ -13,10 +13,11 @@
         }
 
         body {
-            box-align: center;
+            align-items: center;
             height: 600px;
             width: 500px;
             margin: 10px;
+            justify-content: center;
         }
 
         #container {
@@ -111,7 +112,7 @@
                 <input type="email" class="form-control" id="inputEmail" required>
             </div>
 
-
+            <!-- term -->
             <div class="form-check agree margin">
                 <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3"
                     aria-describedby="invalidCheck3Feedback" required>
@@ -145,11 +146,10 @@
             let isPwValid1 = false;
             let isPwValid2 = false;
 
-            // Id 가 6자 이상 20자 미만이 맞는가
-
+            // Id 가 6자 이상 20자 미만이 맞는가 정규표현식
             document.querySelector("#inputId").addEventListener("input", function () {
                 let inputId = this.value;
-                isIdValid = inputId.length >= 6 && inputId.length <= 20;
+                isIdValid = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,20}$/.test(inputId);;
                 if (isIdValid) {
                     this.classList.remove("is-invalid");
                     this.classList.add("is-valid");
@@ -162,7 +162,7 @@
             // 비밀번호가 영문, 숫자, 특수문자를 포함한 8이상 20이하가 맞는가
             document.querySelector("#inputPw1").addEventListener("input", function () {
                 let inputPw1 = this.value;
-                isPwValid1 = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/.test(inputPw1);;
+                isPwValid1 = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/.test(inputPw1);
                 if (isPwValid1) {
                     this.classList.remove("is-invalid");
                     this.classList.add("is-valid");
@@ -186,7 +186,6 @@
                 }
             })
 
-
             form.addEventListener("submit", function (event) {
                 event.preventDefault()
 
@@ -204,14 +203,10 @@
                 alert(
                 `${userName}님 환영합니다.
                 아이디 : ${userId}
-                비밀번호 : ${userPw1}
                 이름 : ${userName}
                 전화번호 : ${userPhone}
                 성별 : ${userGender}
                 이메일 : ${userEmail}`)
-
-                const newUrl = "/signup"
-                window.history.pushState({ path: newUrl }, '', newUrl)
 
             })
 

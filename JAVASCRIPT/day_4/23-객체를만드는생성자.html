@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체를 만드는 생성자</title>
+</head>
+
+<body>
+
+    <script>
+
+        function Singer(name, member) {
+            this.name = name
+            this.member = member
+        }
+
+        const noel = new Singer("노을", "강균성, 전우성, 이상곤, 나성호")
+
+        console.log(noel.name)
+        console.log(noel.member)
+
+        /*
+        function BestSinger() {
+            this.name = "노을"
+            this.member = "이상곤, 전우성, 강균성, 나성호"
+            this.singing = function() {
+                console.log("그런데 이게 뭐랄까 난 난 술한잔 하면서 괜찮은 듯 얘기하며 널 털어냈는데 ")
+            }
+        }
+
+        const noel1 = new BestSinger()
+        console.log(noel1.name)
+        console.log(noel1.member)
+        noel1.singing()
+
+        const noel2 = new BestSinger()
+        console.log(noel2.name)
+        console.log(noel2.member)
+        noel2.singing()
+        */
+
+    </script>
+</body>
+
+</html>

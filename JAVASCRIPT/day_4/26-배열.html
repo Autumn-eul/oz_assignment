@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+
+<body>
+
+    <script>
+        const noel = ["이상곤", "전우성", "강균성", "나성호"]
+
+        // push : 배열에 요소 추가하기
+        noel.push("이가을")
+        console.log(noel)
+
+        // pop : 배열의 끝부분부터 요소 제거하기
+        noel.pop()
+        console.log(noel)
+
+        // indexOf : 주어진 요소의 유무를 인덱스 번호로 확인
+        console.log(noel.indexOf("강균성"))
+        console.log(noel.indexOf("전우성"))
+
+        // splice : 정해진 위치에서부터 정해진 개수만큼 요소 제거
+        noel.splice(0, 4, "전우성", "강균성", "이상곤", "나성호")
+        // splice로 요소를 지운 다음, 대체 값을 채우는 것도 가능하다!
+        // 이때 추가하는 요소의 개수 제한이 없다
+        // 0번부터 4개를 지우고, 뒤의 항목을 다시 추가하겠다
+
+        // forEach : 배열의 개별 요소에 대한 함수를 차례대로 호출
+        noel.forEach(function(item) {
+            console.log("포이치에서 호출된 함수! " + item)
+        })
+
+
+        /*
+        console.log(noel)
+        console.log(noel[0])
+        console.log(noel[1])
+        console.log(noel[2])
+        console.log(noel[3])
+
+        noel[0] = "상곤"
+        noel[1] = "우성"
+        noel[2] = "균성"
+        noel[3] = "성호"
+
+        for(let i = 0; i < 4; i += 1) {
+            console.log(noel[i])
+        }
+        */
+
+    </script>
+</body>
+
+</html>
