@@ -20,6 +20,9 @@ function paintNumber(number) {
 
 // 클릭하면 랜덤숫자 여섯개가 배열에 추가된다!
 drawButton.addEventListener("click", function () {
+    lottoNumbers.splice(0, 6);
+    numberDiv.innerHTML = "";
+
     while (lottoNumbers.length < 6) {
         let rn = Math.floor(Math.random() * 45) + 1
 
@@ -31,6 +34,6 @@ drawButton.addEventListener("click", function () {
 })
 
 resetButton.addEventListener("click", function () {
-    lottoNumbers.splice(0, 6)
-    numberDiv.innerHTML = ""
+    lottoNumbers.splice(0, 6);
+    numberDiv.innerHTML = "";
 })
