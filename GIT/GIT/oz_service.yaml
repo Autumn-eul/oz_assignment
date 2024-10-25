@@ -1,6 +1,10 @@
 team : oz_service.yaml
 
-coach : 서진
+<<<<<<< HEAD
+coach : 영진
+=======
+coach : 지성
+>>>>>>> 68fb23d (service팀 변경)
 
 leader : 희은
 
