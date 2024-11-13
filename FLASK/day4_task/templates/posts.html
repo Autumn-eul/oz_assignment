@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Blog Posts</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>Blog Posts</h1>
+
+    <h2>Create a New Post</h2>
+    <form id="postForm">
+        <input type="hidden" id="postId" value="" />
+        Title: <input type="text" id="title" /><br />
+        Content:<br />
+        <textarea id="content"></textarea><br />
+        <input type="submit" value="Create Post" id="createButton" />
+        <input type="button" value="Update Post" id="updateButton" onclick="submitUpdateForm()" style="display: none" />
+    </form>
+
+    <hr />
+
+    <h2>All Posts</h2>
+    <ul id="postsList"></ul>
+
+    <script>
+        let currentEditingId = null;
+
+        document
+            .getElementById("postForm")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+                const title = document.getElementById("title").value;
+                const content = document.getElementById("content").value;
+                if (currentEditingId === null) {
+                    createNewPost(title, content);
+                } else {
+                    updatePost(currentEditingId, title, content);
+                }
+            });
+
+        function createNewPost(title, content) {
+            axios
+                .post("/posts", { title, content })
+                .then(function (response) {
+                    console.log(response);
+                    loadPosts();
+                    resetForm();
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        }
+
+        function updatePost(id, title, content) {
+            axios
+                .put("/posts/" + id, { title, content })
+                .then(function (response) {
+                    console.log(response);
+                    loadPosts();
+                    resetForm();
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        }
+
+        function loadPosts() {
+            axios
+                .get("/posts")
+                .then(function (response) {
+                    const posts = response.data;
+                    const postsList = document.getElementById("postsList");
+                    postsList.innerHTML = "";
+                    posts.reverse().forEach((post) => {
+                        const listItem = document.createElement("li");
+                        listItem.innerHTML = `
+                            <h3>ID: ${post.id}</h3>
+                            <h3>TITLE: ${post.title}</h3>
+                            <p>CONTENT: ${post.content}</p>
+                            <button onclick="deletePost(${post.id})">Delete</button>
+                            <button onclick="loadPostForEditing(${post.id})">Edit</button>
+                        `;
+                        postsList.appendChild(listItem);
+                    });
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        }
+
+        function loadPostForEditing(id) {
+            axios
+                .get("/posts/" + id)
+                .then(function (response) {
+                    const post = response.data;
+
+                    console.log("post", post);
+                    currentEditingId = post.id;
+                    document.getElementById("title").value = post.title;
+                    document.getElementById("content").value = post.content;
+                    document.getElementById("createButton").style.display = "none";
+                    document.getElementById("updateButton").style.display = "inline";
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        }
+
+        function resetForm() {
+            currentEditingId = null;
+            document.getElementById("title").value = "";
+            document.getElementById("content").value = "";
+            document.getElementById("createButton").style.display = "inline";
+            document.getElementById("updateButton").style.display = "none";
+        }
+
+        function submitUpdateForm() {
+            const title = document.getElementById("title").value;
+            const content = document.getElementById("content").value;
+            console.log("currentEditingId", currentEditingId);
+            if (currentEditingId) {
+                updatePost(currentEditingId, title, content);
+            } else {
+                console.error("No post is currently being edited.");
+            }
+        }
+
+        function deletePost(id) {
+            if (confirm("Are you sure you want to delete this post?")) {
+                axios
+                    .delete("/posts/" + id)
+                    .then(function (response) {
+                        console.log(response);
+                        loadPosts();
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+            }
+        }
+
+        loadPosts();
+    </script>
+</body>
+
+</html>
