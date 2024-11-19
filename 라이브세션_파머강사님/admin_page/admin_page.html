@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Admin Page</title>
+</head>
+<body>
+    <div class="container mt-3">
+        <h3 class="mt-5 mb-3">신규 등록 상품</h3>
+        <form class="row row-cols-lg-auto g-3 align-items-center">      
+            <div class="col-12">
+              <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+              <select class="form-select" id="inlineFormSelectPref" name="category_data_table">
+                <option value="" disabled selected>카테고리</option>
+                <!-- 카테고리 데이터가 여기 추가됩니다. -->
+              </select>
+            </div>
+            <div class="col-3">
+              <label class="visually-hidden" for="autoSizingInput">product name</label>
+              <input type="text" class="form-control" id="autoSizingInput" placeholder="제품명을 입력해주세요">
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-primary">검색</button>
+            </div>
+        </form>
+
+        <div class="container mt-3">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">카테고리</th>
+                        <th scope="col">브랜드</th>
+                        <th scope="col">상품명</th>
+                        <th scope="col">가격</th>
+                    </tr>
+                </thead>
+                <tbody id="product_data_Table">
+                    <!-- 제품 데이터가 여기 추가됩니다. -->
+                </tbody>
+            </table>
+        </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="admin_page.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

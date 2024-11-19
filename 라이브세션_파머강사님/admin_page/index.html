@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 양식</title>
+    <!-- Bootstrap을 사용하기 위한 코드 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    .container {
+                max-width: 500px; /* 폼의 최대 폭을 400px로 설정 */
+                margin: 0 auto; /* 가운데 정렬 */
+                padding: 20px; /* 내부 여백 */
+                border: 1px solid #ccc; /* 폼의 외곽선 */
+                border-radius: 10px; /* 둥근 테두리 */
+                background-color: #f9f9f9; /* 폼의 배경색 */
+            }
+</style>
+<body>
+
+    <div class="container mt-5">
+        <h2>회원가입</h2>
+        <form id="form" class="mt-4" action="#">
+            <div class="mb-3">
+                <label for="id" class="form-label">아이디</label>
+                <input type="text" class="form-control" id="id" name="id" placeholder="아이디" autocomplete="off" required>
+            </div>
+            <div class="mb-3">
+                <label for="pw1" class="form-label">비밀번호</label>
+                <input type="password" class="form-control" id="pw1" name="pw1" placeholder="비밀번호" required>
+                <span> * 영문, 숫자, 특수문자를 포함한 8자 이상 30자 미만이어야 합니다.</span>
+            </div>
+            <div class="mb-3">
+                <label for="pw2" class="form-label">비밀번호 확인</label>
+                <input type="password" class="form-control" id="pw2" name="pw2" placeholder="비밀번호 확인" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">이름</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="사용자 이름" autocomplete="off" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">전화번호</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="휴대전화 번호" autocomplete="off" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">성별</label><br>
+                <input type="radio" id="genderMale" name="gender" value="남자" checked> 남자
+                <input type="radio" id="genderFemale" name="gender" value="여자"> 여자
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">이메일</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="이메일" autocomplete="off" required>
+            </div>
+            <button type="submit" class="btn btn-primary">가입</button>
+        </form>
+    </div>
+
+    <script src="admin_sign.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
